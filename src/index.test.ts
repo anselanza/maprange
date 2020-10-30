@@ -1,4 +1,4 @@
-import { remap, remapArray } from '.'
+import { remap, remapArray, remapCoords } from '.'
 
 describe('percentage examples', () => {
 
@@ -115,4 +115,33 @@ describe('remap multiple values at once, in an array', () => {
     const values = [0, 0.1, 0.2, 0.25, 0.665, 1];
     expect(remapArray(values, [0,1], [0,100])).toEqual([0, 10, 20, 25, 66.5, 100])
   })
+})
+
+describe('remap coordinates', () => {
+
+  test('normalised to pixel dimensions, 2D', () => {
+    const [x,y] = [0.25, 0.5];
+    const pixels = remapCoords([x,y], [1,1], [1920,1080]);
+    expect(pixels).toEqual([480, 540]);
+  })
+
+  test('normalised to realworld dimensions, 3D', () => {
+    const [x,y,z] = [0.25, 0.5, 2.5];
+    const pixels = remapCoords([x,y,z], [1,1,1], [1000,1000,1000]);
+    expect(pixels).toEqual([250, 500, 2500]);
+  })
+
+  test('throw error when dimensions do not match', () => {
+    const [x,y,z] = [0.1, 0.15, 2];
+    expect(() => {
+      remapCoords([x,y,z], [1,1], [100, 100]);
+    }).toThrowError()
+    expect(() => {
+      remapCoords([x,y,z], [1,1,1], [100, 100]);
+    }).toThrowError()
+    expect(() => {
+      remapCoords([x,y], [1,1,1], [1000, 1000, 1000])
+    }).toThrowError()
+  })
+
 })

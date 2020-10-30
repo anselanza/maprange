@@ -23,9 +23,15 @@ const remapArray = (values: number[], inputRange: number[], targetRange: number[
     remap(v, inputRange, targetRange, clamp, shouldRound)
   ], [])
 
-export {
-  remap,
-  remapArray
+const remapCoords = (normCoords: number[], inputDimensions: number[], targetDimensions: number[], clamp=false, shouldRound = true): number[] => {
+  if (normCoords.length !== targetDimensions.length || normCoords.length !== inputDimensions.length) {
+    throw Error('coordinates must have same number of dimensions as input and target dimensions')
+  }
+  return normCoords.map((x, index) => remap(x, [0, inputDimensions[index]], [0, targetDimensions[index]], clamp, shouldRound))
 }
 
-// export = remap
+export {
+  remap,
+  remapArray,
+  remapCoords
+}
