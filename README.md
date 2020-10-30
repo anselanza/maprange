@@ -27,11 +27,11 @@ npm install @anselan/remap
 
 Then (depending on your environment):
 ```
-import remap from 'remap`
+import remap from '@anselan/remap`
 ```
 ...or:
 ```
-const remap = require('remap`)
+const remap = require('@anselan/remap`)
 ```
 
 ## Useful example applications

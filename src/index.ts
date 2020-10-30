@@ -14,4 +14,4 @@ const remap = (value: number, inputRange: number[], targetRange: number[], clamp
   return shouldRound ? Math.round(outgoing) : outgoing; 
 }
 
-export default remap;
+export = remap;
