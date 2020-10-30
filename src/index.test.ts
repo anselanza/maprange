@@ -29,7 +29,7 @@ describe('typical normalised to pixels conversions', () => {
     const value = 1.0;
     expect(remap(value, [0, 1], [0, 1920])).toBe(1920)
   })
-  test('two values, one complex', () => {
+  test('two values, one with fractions in result', () => {
     const x = 0.5;
     const y = 0.8967;
 
@@ -38,6 +38,10 @@ describe('typical normalised to pixels conversions', () => {
 
     expect(px).toBe(960);
     expect(py).toBe(968.436);
+  })
+  test('whole numbers only', () => {
+    const y = 0.8967;
+    expect(remap(y, [0,1], [0,1080], false, true)).toBe(968);
   })
 })
 

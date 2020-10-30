@@ -1,4 +1,4 @@
-const remap = (value: number, inputRange: number[], targetRange: number[], clamp: boolean = false, digits?: number): number => {
+const remap = (value: number, inputRange: number[], targetRange: number[], clamp: boolean = false, shouldRound: boolean = false): number => {
   if (inputRange.length !== 2 || targetRange.length !== 2) {
     throw Error('inputRange and targetRange must be number arrays with exactly 2 elements');
   }
@@ -11,7 +11,7 @@ const remap = (value: number, inputRange: number[], targetRange: number[], clamp
         outgoing = targetRange[0]
       } 
   } 
-  return digits ? Number(outgoing.toFixed(digits)) : outgoing;  
+  return shouldRound ? Math.round(outgoing) : outgoing; 
 }
 
 export default remap;
