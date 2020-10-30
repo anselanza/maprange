@@ -1,5 +1,5 @@
 {
-  "name": "maprange",
+  "name": "@anselan/maprange",
   "version": "0.0.1",
   "description": "Map values from one range to another",
   "main": "index.js",
