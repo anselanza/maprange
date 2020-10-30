@@ -1,6 +1,6 @@
 # Map Range in JS
 
-Inspired by the [map](https://processing.org/reference/map_.html) function in the creative coding framework [Processing](https://processing.org/).
+Inspired by the [map](https://processing.org/reference/map_.html) function in the creative coding framework [Processing](https://processing.org/) and its counterpart [ofMap](https://openframeworks.cc//documentation/math/ofMath/#!show_ofMap) in [openFrameworks](https://openframeworks.cc/). Especially useful for creative coding applications, e.g. animations.
 
 ## Just show me some examples!
 ### Percentages
@@ -31,8 +31,8 @@ setInterval(() => {
 }, 40)
 ```
 
-## Usage
-### `remap`:
+## Details
+### `remap`
 Basic remapping of a value from one range to another.
 > **remap (value, inputRange, targetRange, clamp, shouldRound)**
 
