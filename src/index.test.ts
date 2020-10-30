@@ -1,4 +1,4 @@
-import remap from '.'
+import { remap, remapArray } from '.'
 
 describe('percentage examples', () => {
 
@@ -107,5 +107,12 @@ describe('check range validity', () => {
     expect(() => {
       remap(50, [0, 100], [1, 1])
     }).toThrowError()
+  })
+})
+
+describe('remap multiple values at once, in an array', () => {
+  test('some float values to percentages', () => {
+    const values = [0, 0.1, 0.2, 0.25, 0.665, 1];
+    expect(remapArray(values, [0,1], [0,100])).toEqual([0, 10, 20, 25, 66.5, 100])
   })
 })

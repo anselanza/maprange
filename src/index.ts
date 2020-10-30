@@ -17,11 +17,15 @@ const remap = (value: number, inputRange: number[], targetRange: number[], clamp
   return shouldRound ? Math.round(outgoing) : outgoing; 
 }
 
-// const remapArray = (values: number[], inputRange: number[], targetRange: number[]): number[] => {
-// }
+const remapArray = (values: number[], inputRange: number[], targetRange: number[], clamp: boolean = false, shouldRound: boolean = false): number[] => 
+  values.reduce((result, v) => [
+    ...result,
+    remap(v, inputRange, targetRange, clamp, shouldRound)
+  ], [])
 
-// export {
-//   remap,
-// }
+export {
+  remap,
+  remapArray
+}
 
-export = remap
+// export = remap
