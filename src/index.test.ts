@@ -70,3 +70,42 @@ describe('clamping', () => {
     expect(remap(value, [-1, 1], [-1000, 1000], true)).toBe(-1000)
   })
 })
+
+describe('check range validity', () => {  
+
+  test('throw error if less than 2 elements in either range', () => {
+    expect(() => {
+      remap(0.5, [0], [0,100]);
+    }).toThrowError();
+    expect(() => {
+      remap(0.5, [0,1], [100]);
+    }).toThrowError();
+  })
+
+  test('throw error if more than 2 elements in either range', () => {
+    expect(() => {
+      remap(0.1, [0,1,2], [0,100])
+    }).toThrowError();
+    expect(() => {
+      remap(0.1, [0,1], [0,100,1000])
+    }).toThrowError();
+  })
+
+  test('throw error if elements out or order in either range', () => {
+    expect(() => {
+      remap(-1, [1,-1], [0,100])
+    }).toThrowError();
+    expect(() => {
+      remap(-1, [-1, 1], [10000,100])
+    }).toThrowError();
+  })
+
+  test('throw error if elements are equal in either range', () => {
+    expect(() => {
+      remap(50, [100, 100], [0, 1])
+    }).toThrowError()
+    expect(() => {
+      remap(50, [0, 100], [1, 1])
+    }).toThrowError()
+  })
+})
