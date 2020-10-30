@@ -1,0 +1,21 @@
+{
+  "name": "maprange",
+  "version": "0.0.1",
+  "description": "Map values from one range to another",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "math",
+    "range",
+    "processing",
+    "p5"
+  ],
+  "author": "Stephen Buchanan",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  }
+}
