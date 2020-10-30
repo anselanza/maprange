@@ -23,7 +23,9 @@ const remap = require('remap`)
 ## Usage
 ### Essentially:
 > **remap (value, inputRange, targetRante, clamp)**
+
 ...where the parameters are:
+
 * `value`: a number
 * `inputRange`, `targetRange`: arrays of exactly 2 elements each, i.e `[min,max]`
 * `clamp` (optional; default `false`): whether to constrain the result within the given target range
