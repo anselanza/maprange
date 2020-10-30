@@ -45,3 +45,23 @@ describe('negative values', () => {
     expect(remap(value, 0, 100, -100, 100)).toBe(60)
   })
 })
+
+describe('clamping', () => {
+  test('200% clamped at 100%', () => {
+    const value = 2;
+    expect(remap(value, 0, 1, 0, 100, true)).toBe(100)
+  })
+  test('clamp the bottom end', () => {
+    const value = -10;
+    expect(remap(value, -1, 1, -1000, 1000, true)).toBe(-1000)
+  })
+})
+
+// describe('default input range [0,1]', () => {
+
+//   test('halfway', () => {
+//     const value = 0.5;
+//     expect(remap(value, 0, 100)).toBe(50)
+//   })
+
+// })
