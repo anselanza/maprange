@@ -6,6 +6,19 @@ Differs from the following similar JS packages:
 *  [map-range](https://www.npmjs.com/package/map-range) and [@compactjs/remap](https://www.npmjs.com/package/@compactjs/remap) do not include optional clamping
 * [range-map](https://www.npmjs.com/package/range-map) always rounds resulting numbers
 
+## Usage
+### Essentially:
+> **remap (value, inputRange, targetRante, clamp)**
+
+...where the parameters are:
+
+* `value`: a number
+* `inputRange`, `targetRange`: arrays of exactly 2 elements each, i.e `[min,max]`
+* `clamp` (optional; default `false`): whether to constrain the result within the given target range
+
+### Description
+Provide the range (`inputMin`, `inputMax`) that your `value` is currently in, and specify a new range (`outputMin`, `outputMax`) and you'll get back a new value as per the target range.
+
 ## Installation
 ```
 npm install @anselan/remap
@@ -19,19 +32,6 @@ import remap from 'remap`
 ```
 const remap = require('remap`)
 ```
-
-## Usage
-### Essentially:
-> **remap (value, inputRange, targetRante, clamp)**
-
-...where the parameters are:
-
-* `value`: a number
-* `inputRange`, `targetRange`: arrays of exactly 2 elements each, i.e `[min,max]`
-* `clamp` (optional; default `false`): whether to constrain the result within the given target range
-
-### Description
-Provide the range (`inputMin`, `inputMax`) that your `value` is currently in, and specify a new range (`outputMin`, `outputMax`) and you'll get back a new value as per the target range.
 
 ## Useful example applications
 ### Percentages
