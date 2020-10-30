@@ -13,3 +13,4 @@ const remap = (value: number, start1: number, stop1: number, start2: number, sto
   }
 }
 
+export default remap;
