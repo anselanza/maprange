@@ -1,8 +1,8 @@
 {
   "name": "@anselan/maprange",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Map values from one range to another",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npx jest",
     "build": "npm run test && npx tsc",
