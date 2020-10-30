@@ -8,7 +8,7 @@ Differs from the following similar JS packages:
 
 ## Usage
 ### Essentially:
-> **remap (value, inputRange, targetRante, clamp)**
+> **remap (value, inputRange, targetRange, clamp)**
 
 ...where the parameters are:
 
