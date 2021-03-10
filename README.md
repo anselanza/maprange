@@ -74,7 +74,7 @@ npm install @anselan/remap
 
 Import the basics:
 ```
-import { remap } from '@anselan/remap`
+import { remap } from '@anselan/remap'
 ```
 ...or import other functions you need:
 ```
