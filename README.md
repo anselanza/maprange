@@ -69,22 +69,22 @@ Keep in mind:
 
 ## Installation
 ```
-npm install @anselan/remap
+npm install @anselan/maprange
 ```
 
 Import the basics:
 ```
-import { remap } from '@anselan/remap'
+import { remap } from '@anselan/maprange'
 ```
 ...or import other functions you need:
 ```
-import { remap, remapArray, remapCoords } from '@anselan/remap'
+import { remap, remapArray, remapCoords } from '@anselan/maprange'
 ```
 
 
 If you cannot use `import`, try `require`:
 ```
-const { remap } = require('@anselan/remap`)
+const { remap } = require('@anselan/maprange`)
 ```
 
 ## Why not use something else?
