@@ -91,13 +91,28 @@ describe('check range validity', () => {
     }).toThrowError();
   })
 
-  test('throw error if elements out or order in either range', () => {
-    expect(() => {
-      remap(-1, [1,-1], [0,100])
-    }).toThrowError();
-    expect(() => {
-      remap(-1, [-1, 1], [10000,100])
-    }).toThrowError();
+  // test('throw error if elements out of order in either range', () => {
+  //   expect(() => {
+  //     remap(-1, [1,-1], [0,100])
+  //   }).toThrowError();
+  //   expect(() => {
+  //     remap(-1, [-1, 1], [10000,100])
+  //   }).toThrowError();
+  // })
+
+  test('allow inverse output ranges', () => {
+    const value = 0.25;
+    expect(remap(value, [0, 1], [1, 0])).toBe(0.75);
+
+    const value2 = 50;
+    expect(remap(value2, [0, 100], [100, 0])).toBe(50);
+
+    const value3 = 10; // 10%
+    expect(remap(value3, [0, 100], [1, 0])).toBe(0.9);
+
+    // As per README examples
+    expect(remap(10, [0, 100], [100, 0])).toBe(90);
+
   })
 
   test('throw error if elements are equal in either range', () => {

@@ -8,6 +8,12 @@ The value `0.5` in the range *[0,1]* should return as `50` in the range *[0,100]
 ```
 const result = remap(0.5, [0,1], [0, 100]); // result === 50
 ```
+
+### Inverse output
+The value 10% should count as as 100% _minus_ 10% (i.e. 90%) if we are counting backwards, i.e.
+```
+const result = remap(10, [0, 100], [100, 0]); // notice reversed output range; result === 90
+```
 ### Normalised (float) position to pixels
 ```
 // A pixel in the middle of the screen, normalised in the range [0,1]

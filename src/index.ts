@@ -1,5 +1,5 @@
 const checkValidRanges = (arrays: number[][]): boolean => 
-  arrays.reduce((result, a) => a.length !== 2 || a[0] >= a[1] ? false : result, true)
+  arrays.reduce((result, a) => a.length !== 2 || a[0] === a[1] ? false : result, true)
 
 const remap = (value: number, inputRange: number[], targetRange: number[], clamp: boolean = false, shouldRound: boolean = false): number => {
   if (!checkValidRanges([inputRange, targetRange])) {
