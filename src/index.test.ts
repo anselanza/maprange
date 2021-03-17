@@ -137,10 +137,19 @@ describe('check range validity', () => {
   });
 
   test('inverse output ranges clamped results', () => {
-    const value = 0.75;
+    const value = 0.75; // halfway in
 
     expect(remap(value, [0.5, 1.0], [0, 1], true)).toBe(0.5); // sanity, !inverse
     expect(remap(value, [0.5, 1.0], [1, 0], true)).toBe(0.5);
+
+    const value2 = 0.5 + 0.125; // a quarter way in
+    expect(remap(value2, [0.5, 1.0], [0, 1], true)).toBe(0.25); // sanity, !inverse
+    expect(remap(value2, [0.5, 1.0], [1, 0], true)).toBe(0.75);
+
+    const value3 = 1.5; // whole step overshoot
+    expect(remap(value3, [0.5, 1.0], [0, 1], true)).toBe(1.0); // sanity, !inverse
+    expect(remap(value3, [0.5, 1.0], [1, 0], true)).toBe(0);
+
   });
 
   test('throw error if elements are equal in either range', () => {
