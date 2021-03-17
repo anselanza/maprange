@@ -113,7 +113,35 @@ describe('check range validity', () => {
     // As per README examples
     expect(remap(10, [0, 100], [100, 0])).toBe(90);
 
-  })
+  });
+
+  test('inverse output ranges with offset input ranges', () => {
+    const value = 0.75; // halfway in
+
+    expect(remap(value, [0.5, 1.0], [0, 1])).toBe(0.5); // sanity, !inverse
+    expect(remap(value, [0.5, 1.0], [1, 0])).toBe(0.5);
+
+    const value2 = 0.5 + 0.125; // a quarter way in
+    expect(remap(value2, [0.5, 1.0], [0, 1])).toBe(0.25); // sanity, !inverse
+    expect(remap(value2, [0.5, 1.0], [1, 0])).toBe(0.75);
+
+    const value3 = 1.5; // whole step overshoot
+    expect(remap(value3, [0.5, 1.0], [0, 1])).toBe(2.0); // sanity, !inverse
+    expect(remap(value3, [0.5, 1.0], [1, 0])).toBe(-1.0);
+
+    const value4 = 1.0; // at the end
+    expect(remap(value4, [0.5, 1.0], [1, 0])).toBe(0);
+
+    const value5 = 0.5; // at the beginning
+    expect(remap(value5, [0.5, 1.0], [1, 0])).toBe(1);
+  });
+
+  test('inverse output ranges clamped results', () => {
+    const value = 0.75;
+
+    expect(remap(value, [0.5, 1.0], [0, 1], true)).toBe(0.5); // sanity, !inverse
+    expect(remap(value, [0.5, 1.0], [1, 0], true)).toBe(0.5);
+  });
 
   test('throw error if elements are equal in either range', () => {
     expect(() => {
