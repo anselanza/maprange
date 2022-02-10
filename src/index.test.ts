@@ -177,6 +177,18 @@ describe('remap coordinates', () => {
     expect(pixels).toEqual([480, 540]);
   })
 
+  test('cm to pixels', () => {
+    const [x,y] = [100,200];
+    const pixels = remapCoords([x,y], [400,400], [1920,1080]);
+    expect(pixels).toEqual([480, 540]);
+  })
+
+  test ('pixels, normalised', () => {
+    const [x,y] = [100, 200];
+    const norm = remapCoords([x,y], [1000,1000], [1,1], false, false);
+    expect(norm).toEqual([0.1, 0.2])
+  })
+
   test('normalised to realworld dimensions, 3D', () => {
     const [x,y,z] = [0.25, 0.5, 2.5];
     const pixels = remapCoords([x,y,z], [1,1,1], [1000,1000,1000]);

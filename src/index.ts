@@ -32,7 +32,7 @@ const remapArray = (values: number[], inputRange: number[], targetRange: number[
     remap(v, inputRange, targetRange, clamp, shouldRound)
   ], [])
 
-const remapCoords = (inputCoords: number[], inputDimensions: number[], targetDimensions: number[], clamp=false, shouldRound = true): number[] => {
+const remapCoords = (inputCoords: number[], inputDimensions: number[], targetDimensions: number[], clamp=false, shouldRound = false): number[] => {
   if (inputCoords.length !== targetDimensions.length || inputCoords.length !== inputDimensions.length) {
     throw Error('coordinates must have same number of dimensions as input and target dimensions')
   }
