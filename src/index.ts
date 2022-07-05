@@ -3,7 +3,8 @@ const checkValidRanges = (arrays: number[][]): boolean =>
 
 const remap = (value: number, inputRange: number[], targetRange: number[], clamp: boolean = false, shouldRound: boolean = false): number => {
   if (!checkValidRanges([inputRange, targetRange])) {
-    throw Error('inputRange and targetRange must be number arrays with exactly 2 elements');
+    throw Error('inputRange and targetRange must be number arrays with exactly 2 elements, and these must differ; you gave:' 
+    + JSON.stringify({inputRange, targetRange}));
   }
   // let outgoing = (value - start1) / (stop1 - start1) * (stop2 - start2) + start2;
   let outgoing = (value - inputRange[0]) / (inputRange[1] - inputRange[0]) * (targetRange[1] - targetRange[0]) + targetRange[0];
