@@ -152,13 +152,23 @@ describe('check range validity', () => {
 
   });
 
-  test('throw error if elements are equal in either range', () => {
-    expect(() => {
-      remap(50, [100, 100], [0, 1])
-    }).toThrowError()
-    expect(() => {
-      remap(50, [0, 100], [1, 1])
-    }).toThrowError()
+  // test('throw error if elements are equal in either range', () => {
+  //   expect(() => {
+  //     remap(50, [100, 100], [0, 1])
+  //   }).toThrowError()
+  //   expect(() => {
+  //     remap(50, [0, 100], [1, 1])
+  //   }).toThrowError()
+  // })
+
+  test("if elements are equal in range, simply return result unchanged", () => {
+    const inputRange = [0,1];
+    const targetRange = [510.4, 510.4];
+    expect(remap(0, inputRange, targetRange)).toBe(targetRange[0]);
+    expect(remap(0.5, inputRange, targetRange)).toBe(targetRange[0]);
+    expect(remap(0.5, inputRange, targetRange)).toBe(targetRange[1]);
+    expect(remap(1, inputRange, targetRange)).toBe(targetRange[0]);
+    expect(remap(1, inputRange, targetRange)).toBe(targetRange[1]);
   })
 })
 
